@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
   glfwTerminate();
 
   // Exit program
-  exit(EXIT_SUCCESS);
+  // exit(EXIT_SUCCESS);
 
   return 0;
 }
