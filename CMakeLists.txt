@@ -1,10 +1,20 @@
 cmake_minimum_required(VERSION 3.24.0)
 
-project(ProjectName)
+project(ProjectName VERSION 1.0)
+
+configure_file(ProjectNameConfig.h.in ProjectNameConfig.h)
 
 add_executable(${PROJECT_NAME} main.cpp)
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
 
-#Adding a subdirectory
+#     Adding a subdirectory
+
+option(USE_ADDER "A simple library for adding two floats" ON)
+if(USE_ADDER)
+    add_subdirectory(Adder)
+endif()
+############# glfw submodule ###################
+
 #     DOWNLOAD SUBMODULE
 if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
 # Update submodules as needed
@@ -27,8 +37,9 @@ if(NOT EXISTS "${PROJECT_SOURCE_DIR}/external/glfw/CMakeLists.txt")
     message(FATAL_ERROR "The glfw submodules was not downloaded! GIT_SUBMODULE was turned off or failed. ")
 endif()
 
-add_subdirectory(Adder)
 add_subdirectory(external/glfw)
+
+###############################################################
 
 target_include_directories(${PROJECT_NAME} 
   PUBLIC Adder 

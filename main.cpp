@@ -1,12 +1,15 @@
 #include <iostream>
 #include <adder.h>
 #include <GLFW/glfw3.h>
+#include <ProjectNameConfig.h>
 
-int main()
+int main(int argc, char *argv[])
 {
   std::cout << "QUANTO FA 15 + 18!?!" << std::endl;
-
   std::cout << add(15.3f, 18.4f) << std::endl;
+
+  // Output Version
+  std::cout << argv[0] << " Version " << ProjectName_VERSION_MAJOR << "." << ProjectName_VERSION_MINOR << std::endl;
 
   GLFWwindow *window;
   if (!glfwInit())
