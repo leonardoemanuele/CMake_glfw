@@ -1,2 +1,4 @@
 #define ProjectName_VERSION_MAJOR "@ProjectName_VERSION_MAJOR@"
 #define ProjectName_VERSION_MINOR "@ProjectName_VERSION_MINOR@"
+
+#cmakedefine USE_ADDER
